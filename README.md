@@ -26,7 +26,6 @@ Say what the step will be
 yarn install v1.5.1
 [1/5] Validating package.json...
 [2/5] Resolving packages...
-$ (cd client && yarn) && (cd server && yarn)
 ```
 
 This shows you what command that I am prompting yarn to do. In this case, it is going go into the folder, server & client to execute yarn install to install the required modules. If everything is installed or updated. It will show "success"
