@@ -15,30 +15,23 @@ class Detail extends Component {
 
   lookUpDb = () => {
     API.getBook(this.props.match.params.id)
-    .then(book => {
-      this.setState({book: book.data});
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
-  // Add code to get the book with an _id equal to the id in the route param
-  // e.g. http://localhost:3000/books/:id
-  // The book id for this route can be accessed using this.props.match.params.id
+      .then(book => {
+        this.setState({ book: book.data });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-   
-              <h3>
-                {this.props.book.title} 
-                <h5>by {this.props.book.author}</h5>
-              </h3>
-        
-          </Col>
-        </Row>
+      <div style={{ padding: "1em" }}>
+        <Jumbotron>
+          <blockquote>
+            <h2>{this.props.book.title}</h2>
+            <footer>By {this.props.book.author}</footer>
+          </blockquote>
+        </Jumbotron>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
@@ -49,10 +42,12 @@ class Detail extends Component {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Authors</Link>
+            <button className="btn btn-info" onClick={this.props.doneFn}>
+              Done
+            </button>
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }
